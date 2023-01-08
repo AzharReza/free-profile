@@ -129,6 +129,10 @@
                     <label for="inputState">Date of Birth</label>
                     <input type="date" name="dob" class="form-control" placeholder="State" style="height: 48px;">
                 </div>
+                <div class="col-md-2 form-group">
+                    <label for="inputState">Date of Death</label>
+                    <input type="date" name="dod" class="form-control" placeholder="State" style="height: 48px;">
+                </div>
                 <div class="form-group col-md-2">
                     <label for="inputState">Religion</label>
                     <select id="inputState" name="religion" class="form-control" style="height: 49px;">

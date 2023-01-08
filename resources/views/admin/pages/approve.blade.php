@@ -2,7 +2,8 @@
 @section('title','Users Approve')
 @section('page-css')@endsection
 @section('content')
-
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/css/style.css">
     <div class="content-wrapper">
         <section class="section about">
             <div class="container">
@@ -76,6 +77,13 @@
                                     <th scope="row">7</th>
                                     <td>Date Of Birth</td>
                                     <td>{{$data->dob}}</td>
+                                    @if($data->dod)
+                                        <td>Date Of Death</td>
+                                        <td>{{$data->dod}}</td>
+                                    @else
+                                        <td>User Status</td>
+                                        <td>Alive</td>
+                                    @endif
                                     <td>Religion</td>
                                     <td>{{$data->religion}}</td>
                                 </tr>
@@ -86,10 +94,16 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">9</th>
+                                    <td></td>
+                                    <td></td>
                                     <td>Description</td>
-                                    <td>{{$data->description}}</td>
+                                    <td style="width:50px !important;">{{$data->description}}</td>
                                 </tr>
+                                @if(!$data->status)
                                 <tr><a class="btn btn-primary float-right" href="{{route('userApproved',$data)}}">Approve</a> </tr>
+                                @else
+                                <tr><button class="btn btn-primary float-right" >Approved</button> </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>
@@ -98,8 +112,7 @@
             </div>
         </section>
     </div>
-    <!-- content-wrapper ends -->
-
 @endsection
 @section('page-js')
+    <script src="/js/script.js"></script>
 @endsection

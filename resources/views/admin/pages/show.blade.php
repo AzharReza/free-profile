@@ -155,6 +155,13 @@
                                 <th scope="row">7</th>
                                 <td>Date Of Birth</td>
                                 <td>{{$data->dob}}</td>
+                                @if($data->dod)
+                                    <td>Date Of Death</td>
+                                    <td>{{$data->dod}}</td>
+                                @else
+                                    <td>User Status</td>
+                                    <td>Alive</td>
+                                @endif
                                 <td>Religion</td>
                                 <td>{{$data->religion}}</td>
                             </tr>
