@@ -9,7 +9,7 @@
 
     <meta name="author" content="">
 
-    <title>Personality | Mustafa</title>
+    <title>Personality | {{$data->first_name.' '.$data->last_name}}</title>
     <link rel="icon" type="image/x-icon" href="/images/fav.jpeg"/>
 
 
