@@ -81,98 +81,99 @@
 
     <!-- Header Close -->
     <div class="container" style="margin-top: 132px;">
-        <form method="post" enctype="multipart/form-data" action="">
+        <form method="post" enctype="multipart/form-data" action="{{route('userUpdate',$user)}}">
+            @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">First Name</label>
-                    <input type="text" name="first_name" class="form-control" id="inputEmail4" placeholder="First Name">
+                    <input type="text" name="first_name" value="{{$user->first_name}}" class="form-control" id="inputEmail4" placeholder="First Name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Last Name</label>
-                    <input type="text" name="last_name" class="form-control" id="inputPassword4"
+                    <input type="text" name="last_name" value="{{$user->last_name}}" class="form-control" id="inputPassword4"
                            placeholder="Last Name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                    <input type="email" name="email" value="{{$user->email}}" class="form-control" id="exampleInputEmail1"
                            aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Phone no</label>
-                    <input type="text" name="phone" class="form-control" id="inputPassword4" placeholder="Phone no">
+                    <input type="text" name="phone" value="{{$user->phone}}" class="form-control" id="inputPassword4" placeholder="Phone no">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Father Name</label>
-                    <input type="text" name="father_name" class="form-control" id="exampleInputEmail1"
+                    <input type="text" name="father_name" value="{{$user->father_name}}" class="form-control" id="exampleInputEmail1"
                            aria-describedby="emailHelp" placeholder="Father Name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">CNIC No.</label>
-                    <input type="text" name="cnic" class="form-control" id="inputPassword4" placeholder="CNIC No.">
+                    <input type="text" name="cnic" value="{{$user->cnic}}" class="form-control" id="inputPassword4" placeholder="CNIC No.">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" name="address" value="{{$user->address}}" class="form-control" id="inputAddress" placeholder="1234 Main St">
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
-                <input type="text" name="address2" class="form-control" id="inputAddress2"
+                <input type="text" name="address2" value="{{$user->address2}}" class="form-control" id="inputAddress2"
                        placeholder="Apartment, studio, or floor">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" name="city" class="form-control" id="inputCity">
+                    <input type="text" name="city" value="{{$user->city}}" class="form-control" id="inputCity">
                 </div>
                 <div class="col-md-2 form-group">
                     <label for="inputState">State</label>
-                    <input type="text" name="state" class="form-control" placeholder="State">
+                    <input type="text" name="state" value="{{$user->state}}" class="form-control" placeholder="State">
                 </div>
                 <div class="col-md-2 form-group">
                     <label for="inputState">Date of Birth</label>
-                    <input type="date" name="dob" class="form-control" placeholder="State" style="height: 48px;">
+                    <input type="date" name="dob" value="{{$user->dob}}" class="form-control" placeholder="State" style="height: 48px;">
                 </div>
                 <div class="col-md-2 form-group">
                     <label for="inputState">Date of Death</label>
-                    <input type="date" name="dod" class="form-control" placeholder="State" style="height: 48px;">
+                    <input type="date" name="dod" value="{{$user->dod}}" class="form-control" placeholder="State" style="height: 48px;">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputState">Religion</label>
                     <select id="inputState" name="religion" class="form-control" style="height: 49px;">
                         <option selected>Choose...</option>
-                        <option value="Muslim">Muslim</option>
-                        <option value="Non-Muslim">Non-Muslim</option>
+                        <option value="Muslim" {{$user->religion=='Muslim'?'selected':''}}>Muslim</option>
+                        <option value="Non-Muslim" {{$user->religion=='Non-Muslim'?'selected':''}}>Non-Muslim</option>
 
                     </select>
                 </div>
             </div>
             <div class="custom-file mb-3">
                 <label class="custom-file-label" for="customFile">Choose file</label>
-                <input type="file" name="image" class="custom-file-input" id="customFile">
+                <input type="file" name="image" value="{{$user->image}}" class="custom-file-input" id="customFile">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
-                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3">{{$user->description}}</textarea>
             </div>
             <div class="genderbtn">
                 <label for="inputGender">Gender</label>
                 <div class="gender row mb-3">
                     <div class="form-check ml-3">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                               value="Male" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" type="radio" name="gender" id="gender"
+                               value="Male"  {{$user->gender=='Male'?'checked':''}}>
+                        <label class="form-check-label" for="gender">
                             Male
                         </label>
                     </div>
                     <div class="form-check ml-4">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                               value="Female">
-                        <label class="form-check-label" for="exampleRadios2">
+                        <input class="form-check-input" type="radio" name="gender" id="gender"
+                               value="Female" {{$user->gender=='Female'?'checked':''}}>
+                        <label class="form-check-label" for="gender">
                             Female
                         </label>
                     </div>

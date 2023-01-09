@@ -34,7 +34,8 @@
                                                 <td>{{$user->father_name}}</td>
                                                 <td><img src="{{asset($user->pic)}}" width="50px" height="50px"></td>
                                                 <td>{{$user->status?'Approved':'Pending'}}</td>
-                                                <td><a href="{{route('userApprove',$user)}}">View</a></td>
+                                                <td><a class="btn btn-primary" href="{{route('userApprove',$user)}}">View</a> |
+                                                    <a class="btn btn-primary" href="{{route('userEdit',$user)}}">Edit</a></td>
                                             </tr>
                                         @endforeach
                                         @else

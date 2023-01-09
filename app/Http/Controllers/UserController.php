@@ -76,8 +76,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $data = $user;
-        return view('admin.pages.edit', compact('data'));
+        return view('admin.pages.edit', compact('user'));
     }
 
     /**
@@ -98,6 +97,8 @@ class UserController extends Controller
                 } catch (\Exception $e) {
 //                    return makeResponse('error', 'Error in Saving Image: ' . $e, 500);
                 }
+            }else{
+                $image = $user->pic;
             }
             $user->update([
                 'first_name' => $request->first_name ?? 'N/A',
